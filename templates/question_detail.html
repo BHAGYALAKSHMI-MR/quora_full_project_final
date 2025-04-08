@@ -1,0 +1,42 @@
+<h2>{{ question.title }}</h2>
+<p>
+  ❤️ Likes: {{ question.likes.count }}
+  <a href="{% url 'like_question' question.id %}">
+    {% if user in question.likes.all %}Unlike{% else %}Like{% endif %}
+  </a>
+</p>
+
+<p>{{ question.body }}</p>
+<p><strong>Posted by:</strong> {{ question.author.username }}</p>
+
+<h3>Answers:</h3>
+<ul>
+  {% for answer in answers %}
+    <li>
+      {{ answer.body }} — {{ answer.author.username }} <br>
+      ❤️ Likes: {{ answer.likes.count }}
+      <a href="{% url 'like_answer' answer.id %}">
+        {% if user in answer.likes.all %}Unlike{% else %}Like{% endif %}
+      </a>
+    </li>
+  {% empty %}
+    <li>No answers yet.</li>
+  {% endfor %}
+</ul>
+
+<h3>Your Answer:</h3>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Submit Answer</button>
+</form>
+
+<p>
+  <a href="{% url 'home' %}">Back to Home</a> |
+  <a href="{% url 'logout' %}">Logout</a>
+</p>
+{% if user == question.author %}
+  <form method="get" action="{% url 'delete_question' question.id %}">
+    <button type="submit">🗑 Delete</button>
+  </form>
+{% endif %}

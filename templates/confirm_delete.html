@@ -1,0 +1,11 @@
+<h2>Delete Question</h2>
+<p>Are you sure you want to delete the question:</p>
+
+<h3>{{ question.title }}</h3>
+<p>{{ question.body }}</p>
+
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Yes, delete</button>
+  <a href="{% url 'question_detail' question.id %}">Cancel</a>
+</form>
