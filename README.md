@@ -49,7 +49,8 @@ This is a Django-based Q&A web app inspired by Quora. Users can sign up, log in,
 
 5. ⚙️ Run migrations
 
-    > python manage.py makemigrations
+    > python manage.py makemigrations quoraapp
+    
     > python manage.py migrate
 
 6. 👤 Create a superuser
