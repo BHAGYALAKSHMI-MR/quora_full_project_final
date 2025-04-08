@@ -1,5 +1,6 @@
 ===========================
-Quora-style Django Project
+
+Quora-style Django Project.
 ===========================
 
 ----------------------------------
@@ -7,7 +8,7 @@ Quora-style Django Project
 ----------------------------------
 
 ✅ Visit the deployed project here:
-
+Quora-style Django Project(just named thinkflow)
 🔗 https://thinkflow.pythonanywhere.com/
 
 (just copy paste link in browser)
